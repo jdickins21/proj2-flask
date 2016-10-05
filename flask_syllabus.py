@@ -32,6 +32,8 @@ import CONFIG
 # Pages
 ###
 
+
+
 @app.route("/")
 @app.route("/index")
 @app.route("/schedule")
@@ -65,6 +67,13 @@ def format_arrow_date( date ):
     except:
         return "(bad date)"
 
+@app.template_filter( 'week' )
+def add_date_to_week():
+  #TODO
+
+  def is_this_week():
+
+    return false
 
 #############
 #    

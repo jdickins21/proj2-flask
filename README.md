@@ -1,6 +1,8 @@
 # proj2-flask
 A starter project for using the Flask framework
 
+Jacob Dickinson
+
 Remember to remove these instructions and replace them with the 
 an appropriate README. 
 

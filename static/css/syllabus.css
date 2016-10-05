@@ -37,6 +37,14 @@ tr.even {
     text-align: center; 
 }
 
+.class-schedule .this_week{
+
+    font-weight: bolder;
+    font-size: 150%; 
+    text-align: center;
+    background-color: rgb(255,255,102);
+}
+
 .class-schedule .topic {
     padding-left: 3ex;
     padding-right: 3ex;

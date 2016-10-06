@@ -72,8 +72,10 @@ STARTDATE = arrow.Arrow(2016, 9, 26)
 def add_date_to_week():
   week = request.table.get('week')
   ## TODO Thing to add date
+  entry.week = STARTDATE.format("ddd MM/DD/YYYY")
   ## TODO check for curr week
   STARTDATE.replace(days =+ 7)
+  return flask.render_template('syllabus.html')
 
 def is_this_week(date):
   if arrow.get(date).replace(days =- 7) <= STARTDATE:

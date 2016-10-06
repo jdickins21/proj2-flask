@@ -51,10 +51,25 @@ tr.even {
     /* leave as default */
 }
 
+.class-schedule .this_week_topic {
+    padding-left: 3ex;
+    padding-right: 3ex;
+    background-color: rgb(255,255,102);
+}
+
 .class-schedule .project {
     border-left-style: solid;
     border-left-width: 1px;
     border-left-color: black; 
     padding-left: 2ex;
     font-style: italic;
+}
+
+.class-schedule .this_week_project {
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: black; 
+    padding-left: 2ex;
+    font-style: italic;
+    background-color: rgb(255,255,102);
 }

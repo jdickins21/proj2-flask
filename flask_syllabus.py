@@ -68,10 +68,12 @@ def format_arrow_date( date ):
         return "(bad date)"
 
 STARTDATE = arrow.Arrow(2016, 9, 26)
-NUMBERODWEEKS = 0
-@app.template_filter( 'week' )
-def add_date_to_week(s):
-  s.append("\n" + STARTDATE.replace(weeks =+ NUMBERODWEEKS))
+@app.route("/", methods=['GET', 'POST'])
+def add_date_to_week():
+  week = request.table.get('week')
+  ## TODO Thing to add date
+  ## TODO check for curr week
+  STARTDATE.replace(days =+ 7)
 
 def is_this_week(date):
   if arrow.get(date).replace(days =- 7) <= STARTDATE:

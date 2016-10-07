@@ -39,7 +39,7 @@ import CONFIG
 @app.route("/schedule")
 def index():
   app.logger.debug("Main page entry")
-  if 'schedule' not in flask.session:
+  if 'schedule': #not in flask.session:
       app.logger.debug("Processing raw schedule file")
       raw = open(CONFIG.schedule)
       flask.session['schedule'] = pre.process(raw)
@@ -66,21 +66,6 @@ def format_arrow_date( date ):
         return normal.format("ddd MM/DD/YYYY")
     except:
         return "(bad date)"
-
-STARTDATE = arrow.Arrow(2016, 9, 26)
-@app.route("/", methods=['GET', 'POST'])
-def add_date_to_week():
-  week = request.table.get('week')
-  ## TODO Thing to add date
-  entry.week = STARTDATE.format("ddd MM/DD/YYYY")
-  ## TODO check for curr week
-  STARTDATE.replace(days =+ 7)
-  return flask.render_template('syllabus.html')
-
-def is_this_week(date):
-  if arrow.get(date).replace(days =- 7) <= STARTDATE:
-    return true
-  return false
 
 #############
 #    

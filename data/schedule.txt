@@ -5,7 +5,7 @@
 # to reference it.   
 #
 #
-begin:  09/27/2016
+begin:  09/26/2016
 
 week: 1 
 

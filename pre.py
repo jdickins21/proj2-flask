@@ -5,6 +5,8 @@ import arrow
 
 base = arrow.now()
 
+STARTDATE = arrow.Arrow(2016, 9, 26)
+
 def process(raw):
     """
     Line by line processing of syllabus file.  Each line that needs
@@ -43,7 +45,9 @@ def process(raw):
                 entry = { }
             entry['topic'] = ""
             entry['project'] = ""
-            entry['week'] = content
+            this_monday = monday_of_week()
+            entry['week'] = content + "\n" +  this_monday.format("MM/DD/YYYY")
+            
 
         elif field == 'topic' or field == 'project':
             entry[field] = content
@@ -56,6 +60,14 @@ def process(raw):
 
     return cooked
 
+def monday_of_week():
+    temp_date = STARTDATE
+    STARTDATE.replace(days =+ 7)
+    return temp_date
+
+def check_if_week():
+
+    return 1
 
 def main():
     f = open("data/schedule.txt")

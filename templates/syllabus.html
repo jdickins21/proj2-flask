@@ -18,7 +18,7 @@
   {% else %}
   <tr class="odd">
   {% endif %}	 
-  {% if entry.month == entry.this_month %}
+  {% if entry.this_month < 0 %}
   <tr class="this_week"> 
   {% endif %}
     <td class="week">{{ entry.week }}</td>

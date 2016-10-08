@@ -45,15 +45,13 @@ def process(raw):
                 cooked.append(entry)
                 entry = { }
             this_monday = monday_of_week(week)
-            month = int(this_monday.format("m"))
-            this_month = int(arrow.now().format("m"))
-            monday = int(this_monday.format("d"))
-            today = int(arrow.now().format("d"))
-            sunday = int(this_monday.replace(day =+ 7).format("d"))
-            if month == this_month:
-                entry['this_month'] = 1
+            monday = this_monday.format("MM/DD/YYYY")
+            today = arrow.now().format("MM/DD/YYYY")
+            sunday = this_monday.replace(days =+ 6).format("MM/DD/YYYY")
+            if monday <= today <= sunday:
+                entry['this_week'] = 3
             else:
-                entry['this_month'] = 0
+                entry['this_week'] = 4
             entry['topic'] = ""
             entry['project'] = ""
             entry['week'] = content + "\n" +  this_monday.format("MM/DD/YYYY")

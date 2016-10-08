@@ -18,7 +18,7 @@
   {% else %}
   <tr class="odd">
   {% endif %}	 
-  {% if entry.this_month < 0 %}
+  {% if entry.this_week is divisibleby 3 %}
   <tr class="this_week"> 
   {% endif %}
     <td class="week">{{ entry.week }}</td>

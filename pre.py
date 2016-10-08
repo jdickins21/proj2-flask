@@ -16,7 +16,8 @@ def process(raw):
     """
     field = None
     entry = { }
-    cooked = [ ] 
+    cooked = [ ]
+    week = 0
     for line in raw:
         line = line.strip()
         if len(line) == 0 or line[0]=="#" :
@@ -43,10 +44,16 @@ def process(raw):
             if entry:
                 cooked.append(entry)
                 entry = { }
+            this_monday = monday_of_week(week)
             entry['topic'] = ""
             entry['project'] = ""
-            this_monday = monday_of_week()
+            entry['month'] = int(this_monday.format("m"))
+            entry['this_month'] = int(arrow.now().format("m"))
+            entry['monday'] = int(this_monday.format("d"))
+            entry['today'] = int(arrow.now().format("d"))
+            entry['sunday'] = int(this_monday.replace(day =+ 7).format("d"))
             entry['week'] = content + "\n" +  this_monday.format("MM/DD/YYYY")
+            week += 1
             
 
         elif field == 'topic' or field == 'project':
@@ -60,14 +67,9 @@ def process(raw):
 
     return cooked
 
-def monday_of_week():
-    temp_date = STARTDATE
-    STARTDATE.replace(days =+ 7)
-    return temp_date
-
-def check_if_week():
-
-    return 1
+def monday_of_week(num):
+    temp = STARTDATE.replace(days =+ (7 * num))
+    return temp
 
 def main():
     f = open("data/schedule.txt")

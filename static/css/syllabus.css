@@ -30,12 +30,9 @@ tr.even {
     background-color: rgb(224,213,179);
 }
 
-
-
-tr.this_week{
-
-    /* Hilight*/
-    background-color: rgb(255,255,102);
+tr.this_week {
+    /* Hilight */ 
+    background-color: rgb(240,224,178);
 }
 
 .class-schedule .week {
